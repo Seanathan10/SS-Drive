@@ -1,0 +1,51 @@
+.CentreEverything {
+  background-image: linear-gradient( 135deg, #0400f5 0%, #37ff00 100% );
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Roboto';
+}
+
+.MainContentWrapper {
+  background-color: rgb( 37, 61, 92 );
+
+  box-shadow: 10px 10px 100px white;
+
+  width: 700px;
+  height: 700px;
+  border-width: 8px;
+  border-radius: 30px;
+
+  margin-left: 5vw;
+  margin-right: 5vw;
+
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+
+  overflow:hidden;
+}
+
+.ActualMainContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  min-height: 100%;
+}
+
+.StackedContent {
+  display: grid;
+  justify-content: center;
+}
+
+.SignIOText {
+  color: rgb(235, 235, 235);
+}
+
+.Padding {
+  padding: 5px;
+}

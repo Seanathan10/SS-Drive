@@ -8,10 +8,6 @@ import { Menu } from "@mui/icons-material";
 
 import { useNavigate } from "react-router-dom";
 
-function MenuButtonClick() {
-    alert( 'Menu button test' );
-}
-
 export default function SignedOutBar() {
     const Navigate = useNavigate();
 
@@ -25,7 +21,7 @@ export default function SignedOutBar() {
                         edge="start"
                         aria-label="Menu button"
                         sx={ { mr: 1.5 } }
-                        onClick={ MenuButtonClick }
+                        onClick={ () => Navigate( '/' ) }
                         style={ { color: '#ffffff' } }
                     >
                         

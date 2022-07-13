@@ -1,20 +1,21 @@
 import React from 'react';
 import { useRef } from 'react';
+import { useState } from 'react';
+
 import '../../App.css';
-// import { useAuth } from '../Context/AuthContext.js';
 
 import { Button } from '@mui/material';
 import { TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Stack } from '@mui/material';
-
-import { useState } from 'react';
 import { IconButton } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import SignedOutBar from '../AppBars/SignedOutBar';
+
+import { useNavigate } from 'react-router-dom';
 
 
 const EmailTextField = styled (TextField ) ( {
@@ -90,21 +91,29 @@ const PasswordTextField = styled( TextField ) ( {
     },
 });
 
-// function SignUp( props ) {
-//     const { classes } = props;
 
 export default function SignUp() {
   const EmailRef = useRef();
   const PasswordRef = useRef();
   const ConfirmPassRef = useRef();
 
-  // const { UserSignUp } = useAuth();
+  const Navigate = useNavigate();
 
-  // function SubmissionHandler( Event ) {
-  //   Event.preventDefault();
 
-  //   UserSignUp( EmailRef.current.value, PasswordRef.current.value )
-  // }
+  function SubmitSignUp( Event ) {
+    // Event.preventDefault();
+
+    if( PasswordRef.current.value === ConfirmPassRef.current.value ) {
+      if( PasswordRef.current.value.length >= 6 ) {
+        alert( 'Success' );
+      } else {
+        alert( 'Password must be at least 6 characters' );
+      }
+    } else {
+      alert( "Passwords do not match" );
+    }
+  }
+
 
   const [ ShowPassword, SetShowPassword ] = useState( false );
   const HandleClickShowPassword = () => SetShowPassword( !ShowPassword );
@@ -166,11 +175,12 @@ export default function SignUp() {
                         ></PasswordTextField>
                         
                         <div>
-                          <Button color='warning' >Sign Up</Button>
+                          <Button color='warning' onClick={ () => SubmitSignUp() } >Sign Up</Button>
                         </div>
                         
 
-                        <Button color='warning' >Already have an account? Click here to Sign In</Button>
+                        <Button color='warning' onClick={ () => Navigate( '/login' ) } >Already have an account? Click here to Sign In</Button>
+                        <Button color='warning' onClick={ () => alert( EmailRef.current.value ) } >EmailRef test</Button>
                     </Stack>
 
                 </div>

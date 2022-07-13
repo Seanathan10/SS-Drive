@@ -1,14 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-import { Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { Button } from '@mui/material';
 
-export default function LoginPage() {
-  const Navigate = useNavigate();
+import { useNavigate } from 'react-router-dom';
+
+export default function SignUp() {
+    const Navigate = useNavigate();
 
   return (
     <div>
-        LOGIN PAGE
+        MOBILE REGISTRATION PAGE
 
         <br></br>
         <br></br>

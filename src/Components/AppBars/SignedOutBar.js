@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { AppBar } from "@mui/material";
 import { Box } from "@mui/material";
 import { Toolbar } from "@mui/material";
@@ -7,6 +9,8 @@ import { IconButton } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
 import { useNavigate } from "react-router-dom";
+
+
 
 export default function SignedOutBar() {
     const Navigate = useNavigate();

@@ -1,15 +1,15 @@
-import './App.css';
+import React from 'react'
 
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
-import Dashboard from './Components/Pages/Dashboard';
-import SignUp from './Components/Pages/SignUp.js';
-import LandingPage from './Components/Pages/LandingPage';
-import LoginPage from './Components/Pages/LoginPage';
+import LandingPage from './MobileComponents/Pages/LandingPage';
+import SignUp from './MobileComponents/Pages/SignUp';
+import Dashboard from './MobileComponents/Pages/Dashboard';
+import SignIn from './MobileComponents/Pages/SignIn';
 
-function App() {
+export default function App_Mobile() {
   return (
     <BrowserRouter>
 
@@ -21,7 +21,7 @@ function App() {
             <Route path='/' element={ <LandingPage/> } ></Route>
             <Route path='/register' element={ <SignUp/> } ></Route>
             <Route path='/dashboard' element={ <Dashboard/> } ></Route>
-            <Route path='/login' element={ <LoginPage/> } ></Route>
+            <Route path='/login' element={ <SignIn/> } ></Route>
           </Routes>
         
         </>
@@ -29,7 +29,5 @@ function App() {
       </div>
 
     </BrowserRouter>
-  );
+  )
 }
-
-export default App;

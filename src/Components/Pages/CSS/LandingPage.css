@@ -19,14 +19,16 @@ a {
     justify-content: center;
   
     font-family: 'Roboto';
+    /* font-family: 'Aller'; */
+    /* font-family: 'Comic Sans MS'; */
+    /* font-family: 'Times New Roman'; */
+    /* font-family: 'Lora'; */
 }
 
 .CentreEverything3 {
     display: flex;
     align-items: center;
     justify-content: center;
-  
-    font-family: 'Roboto';
 }
 
 .StackedContent2 {

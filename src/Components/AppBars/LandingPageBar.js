@@ -129,6 +129,22 @@ export default function LandingPageBar() {
         SetDidUserScroll_Pricing( true );
     }
 
+    function MenuButtonClicked() {
+        if( BrowserName !== "Chrome" ) {
+            window.scroll( {
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            } )
+        } else {
+            window.scroll( {
+                top: 0,
+                left: 0,
+                // behavior: "smooth"
+            } )
+        }
+    }
+
     return (
         <Box sx={ { flexGrow: 1 } }>
             <AppBar color='transparent' elevation={ 10 } sx={ { backdropFilter: 'blur( 15px )' } }>
@@ -138,7 +154,8 @@ export default function LandingPageBar() {
                         edge="start"
                         aria-label="Menu button"
                         sx={ { mr: 1.5 } }
-                        onClick={ () => Navigate( '/' ) }
+                        // onClick={ () => Navigate( '/' ) }
+                        onClick={ () => MenuButtonClicked() }
                         style={ { color: '#ffffff' } }
                     >
                         

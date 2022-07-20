@@ -5,6 +5,8 @@ a {
 .LandingPageWrapperDiv {
     background-image: linear-gradient( 135deg, #00f59f 0%, #00a6ff 100% );
 
+    overflow-x: hidden;
+
     scroll-behavior: smooth;
 }
 

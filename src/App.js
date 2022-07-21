@@ -11,11 +11,10 @@ import LoginPage from './Components/Pages/LoginPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
+      <BrowserRouter>
 
       <div>
-
-        <>
 
           <Routes>
             <Route path='/' element={ <LandingPage/> } ></Route>
@@ -23,12 +22,12 @@ function App() {
             <Route path='/dashboard' element={ <Dashboard/> } ></Route>
             <Route path='/login' element={ <LoginPage/> } ></Route>
           </Routes>
-        
-        </>
 
       </div>
 
     </BrowserRouter>
+    </div>
+    
   );
 }
 

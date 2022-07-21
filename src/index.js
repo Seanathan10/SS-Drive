@@ -9,7 +9,6 @@ import App_Mobile from './App_Mobile';
 
 const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
 
-
 function MobileBrowser() {
   let check = false;
   // eslint-disable-next-line

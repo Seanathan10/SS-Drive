@@ -236,4 +236,4 @@ export default function SignUp() {
 }
 
 // export default withStyles( PaddingStyle ) ( SignUp );
-// export default SignUp
+// export default SignUp;

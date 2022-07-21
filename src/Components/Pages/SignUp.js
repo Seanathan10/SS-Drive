@@ -17,6 +17,41 @@ import SignedOutBar from '../AppBars/SignedOutBar';
 
 import { useNavigate } from 'react-router-dom';
 
+const UsernameTextField = styled (TextField ) ( {
+  // color of the text being entered
+  '& input': {
+      color: 'white',
+  },
+
+  // colour of the text when not focused
+  '& label': {
+      color: '#cfcfcf',
+  },
+
+  // colour of the text that moves to the top
+  '& label.Mui-focused': {
+    color: 'white',
+  },
+
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'green',
+  },
+
+  '& .MuiOutlinedInput-root': {
+      // outline colour when nothing is happening
+    '& fieldset': {
+      borderColor: 'white',
+    },
+      // outline colour when hovering
+    '&:hover fieldset': {
+      borderColor: 'grey',
+    },
+    // outline colour when focused
+    '&.Mui-focused fieldset': {
+      borderColor: 'white',
+    },
+  },
+});
 
 const EmailTextField = styled (TextField ) ( {
     // color of the text being entered
@@ -93,6 +128,7 @@ const PasswordTextField = styled( TextField ) ( {
 
 
 export default function SignUp() {
+  const UsernameRef = useRef();
   const EmailRef = useRef();
   const PasswordRef = useRef();
   const ConfirmPassRef = useRef();
@@ -122,18 +158,18 @@ export default function SignUp() {
   return (
     <div>
       <SignedOutBar></SignedOutBar>
+
       <div className='CentreEverything'>
         <div className='MainContentWrapper'>
             <div className='ActualMainContent'>
                 <div className='StackedContent'>
-                    
-                    {/* <TextField label="Outlined" variant="outlined" color='success'/> */}
 
                     <Stack spacing={ 3 } direction='column'>
                         <h1 className='SignIOText'>Sign Up</h1>
+
+                        <UsernameTextField inputRef={ UsernameRef } label="Username" ></UsernameTextField>
                         
                         <EmailTextField inputRef={ EmailRef } label="Email address"></EmailTextField>
-
 
                         <PasswordTextField
                             inputRef={ PasswordRef }
@@ -180,7 +216,14 @@ export default function SignUp() {
                         
 
                         <Button color='warning' onClick={ () => Navigate( '/login' ) } >Already have an account? Click here to Sign In</Button>
-                        <Button color='warning' onClick={ () => alert( EmailRef.current.value ) } >EmailRef test</Button>
+                        
+                        <div>
+                          <Button color='warning' onClick={ () => alert( UsernameRef.current.value ) } >UsernameRef</Button>
+                          <Button color='warning' onClick={ () => alert( EmailRef.current.value ) } >EmailRef</Button>
+                          <Button color='warning' onClick={ () => alert( PasswordRef.current.value ) } >PassRef</Button>
+                          <Button color='warning' onClick={ () => alert( ConfirmPassRef.current.value ) } >Pass2Ref</Button>
+                        </div>
+                        
                     </Stack>
 
                 </div>

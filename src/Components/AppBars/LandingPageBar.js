@@ -114,9 +114,23 @@ export default function LandingPageBar() {
     }
 
     function FeaturesButtonClicked() {
-        document.getElementById( 'Features' ).scrollIntoView( {
-            behavior: "smooth"
-        } );
+        // document.getElementById( 'Features' ).scrollIntoView( {
+        //     behavior: "smooth"
+        // } );
+
+        if( BrowserName !== "Chrome" ) {
+            window.scroll( {
+                top: 1801,
+                left: 1801,
+                behavior: "smooth"
+            } )
+        } else {
+            window.scroll( {
+                top: 1801,
+                left: 1801,
+                // behavior: "smooth"
+            } )
+        }
 
         SetDidUserScroll_Features( true );
     }

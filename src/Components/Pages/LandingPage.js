@@ -56,7 +56,11 @@ export default function LandingPage() {
 
                   <img className='Shadow' src={ SpeedPhoto } alt='tachometer representing speed' height={ 720 } width={ 720 }/>
 
-                  <h1>Rapid access to files with near-instant load times</h1>
+                  <div>
+                    <h1>Rapid access to files with near-instant load times</h1>
+                    <h1>OVERVIEW</h1>
+                  </div>
+                  
 
                 </div>
               </Box>
@@ -71,7 +75,27 @@ export default function LandingPage() {
               {/* =============================================================================================== */}
 
               
+              
+              <Box sx={ { mt: 8, mb: 2, mr: 5, ml: 5 } } >
+                <div className='SideToSide' id='Features'>
+
+                  <img className='Shadow' src={ SpeedPhoto } alt='tachometer representing speed' height={ 720 } width={ 720 }/>
+
+                  <div>
+                    <h1>Rapid access to files with near-instant load times</h1>
+                    <h1>FEATURES</h1>
+                  </div>
+                  
+
+                </div>
+              </Box>
+
+
+              <Divider></Divider>
+
+
               <img src={ SpeedPhoto } alt='tachometer representing speed' height={ 820 } width={ 820 }/>
+
 
 
 

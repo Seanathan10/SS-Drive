@@ -8,7 +8,7 @@ const SignIn = () => {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const { signIn } = UserAuth();
 
@@ -16,10 +16,9 @@ const SignIn = () => {
     e.preventDefault();
     try {
       await signIn(email, password)
-      navigate( '/dashboard' )
-    } catch (e) {
-
-      console.log(e.message)
+      Navigate( '/dashboard' )
+    } catch ( e ) {
+      console.log( e.message )
     }
   };
 

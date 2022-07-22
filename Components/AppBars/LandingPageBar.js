@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 
-import { AppBar } from "@mui/material";
 import { Box } from "@mui/material";
+import { Button } from "@mui/material";
+import { AppBar } from "@mui/material";
 import { Toolbar } from "@mui/material";
 import { Typography } from "@mui/material";
-import { Button } from "@mui/material";
 import { IconButton } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
@@ -41,10 +41,6 @@ export default function LandingPageBar() {
     const [ DidUserScroll_Privacy, SetDidUserScroll_Privacy ] = useState( false );
     const [ DidUserScroll_Pricing, SetDidUserScroll_Pricing ] = useState( false );
 
-    
-
-    
-
 
 
     const ScrollDetection = useCallback( ( Event ) => {
@@ -66,6 +62,8 @@ export default function LandingPageBar() {
             SetDidUserScroll_Overview( true );
         } else if( window.scrollY > 1550 && window.scrollY < 2000 ) {
             SetDidUserScroll_Features( true );
+        } else if( window.scrollY > 2438 && window.scrollY < 3000 ) {
+            SetDidUserScroll_Privacy( true );
         }
 
 /*
@@ -136,6 +134,20 @@ export default function LandingPageBar() {
     }
 
     function PrivacyButtonClicked() {
+        if( BrowserName !== "Chrome" ) {
+            window.scroll( {
+                top: 2631,
+                left: 2631,
+                behavior: "smooth"
+            } )
+        } else {
+            window.scroll( {
+                top: 2631,
+                left: 2631,
+                // behavior: "smooth"
+            } )
+        }
+
         SetDidUserScroll_Privacy( true );
     }
 
@@ -168,7 +180,6 @@ export default function LandingPageBar() {
                         edge="start"
                         aria-label="Menu button"
                         sx={ { mr: 1.5 } }
-                        // onClick={ () => Navigate( '/' ) }
                         onClick={ () => MenuButtonClicked() }
                         style={ { color: '#ffffff' } }
                     >
@@ -218,8 +229,6 @@ export default function LandingPageBar() {
                     >Pricing</Button>
 
 
-                    
-                    
                     
                     <Typography style={ { color: '#242424' } } variant="h6" component="div" sx={ { flexGrow: 1 } }></Typography>
 

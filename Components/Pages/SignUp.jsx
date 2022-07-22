@@ -21,9 +21,7 @@ import '../../App.css';
 
 import SignedOutBar from '../AppBars/SignedOutBar.js';
 
-
-
-
+// eslint-disable-next-line
 const UsernameTextField = styled (TextField ) ( {
   // color of the text being entered
   '& input': {
@@ -137,6 +135,7 @@ const PasswordTextField = styled( TextField ) ( {
 
 
 const SignUp = () => {
+  // eslint-disable-next-line
   const UsernameRef = useRef();
   const EmailRef = useRef();
   const PasswordRef = useRef();

@@ -13,21 +13,21 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword( auth, email, password );
   };
 
    const signIn = (email, password) =>  {
-    return signInWithEmailAndPassword(auth, email, password)
+    return signInWithEmailAndPassword( auth, email, password )
    }
 
   const logout = () => {
-      return signOut(auth)
+      return signOut( auth )
   }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
-      setUser(currentUser);
+      // console.log( currentUser );
+      setUser( currentUser );
     });
     return () => {
       unsubscribe();

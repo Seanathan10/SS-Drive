@@ -4,22 +4,24 @@ import { useRef } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import '../../App.css';
+import ModalPopup from '../Modal.jsx';
+import SignedOutBar from '../AppBars/SignedOutBar.js';
 import { UserAuth } from '../../Context/AuthContext.js';
 
 
+
+
+import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
 import { TextField } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import InputAdornment from '@mui/material/InputAdornment';
-import { Stack } from '@mui/material';
 import { IconButton } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import Visibility from '@mui/icons-material/Visibility';
+import InputAdornment from '@mui/material/InputAdornment';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
-import '../../App.css';
-
-import SignedOutBar from '../AppBars/SignedOutBar.js';
 
 // eslint-disable-next-line
 const UsernameTextField = styled (TextField ) ( {
@@ -133,7 +135,6 @@ const PasswordTextField = styled( TextField ) ( {
 
 
 
-
 const SignUp = () => {
   // eslint-disable-next-line
   const UsernameRef = useRef();
@@ -145,23 +146,65 @@ const SignUp = () => {
   const HandleClickShowPassword = () => SetShowPassword( !ShowPassword );
   const HandleMouseDownPassword = () => SetShowPassword( !ShowPassword );
 
+  const [ ModalOpen, SetModalOpen ] = useState();
+  const [ ModalTitle, SetModalTitle ] = useState( '' );
+  const [ ModalMessage, SetModalMessage ] = useState( '' );
+
+  function CloseModal() {
+    SetModalOpen( false );
+  }
+
+  
+
 
   const Navigate = useNavigate();
 
   const { createUser } = UserAuth();
 
   const SubmitSignUp = async () => {
-    try {
-      await createUser( EmailRef.current.value, PasswordRef.current.value );
-      Navigate( '/dashboard' )
-    } catch( Error ) {
-      console.log( Error.message );
+    let EmailAddress = EmailRef.current.value;
+    if( EmailAddress.includes( '@' ) && EmailAddress.includes( '.' ) ) {
+      if( PasswordRef.current.value === ConfirmPassRef.current.value ) {
+        if( PasswordRef.current.value.length >= 8 ) {
+          
+          try {
+            await createUser( EmailRef.current.value, PasswordRef.current.value );
+            Navigate( '/dashboard' );
+          } catch( Error ) {
+            console.log( Error.message );
+          }
+          
+          alert( 'Success' );
+
+        } else {
+          // alert( 'Password must be at least 6 characters' );
+          SetModalTitle( 'Password error' );
+          SetModalMessage( 'Password must be at least 8 characters' );
+          SetModalOpen( true );
+        }
+      } else {
+        // alert( "Passwords do not match!" );
+        SetModalTitle( 'Password error' );
+        SetModalMessage( 'Passwords do not match. Please try again' );
+        SetModalOpen( true );
+      }
+    } else {
+      SetModalTitle( 'Email error' );
+      SetModalMessage( 'Email address is not valid' );
+      SetModalOpen( true );
     }
+    
   };
 
   return (
     <div>
       <SignedOutBar></SignedOutBar>
+
+
+      <ModalPopup ModalTitle={ ModalTitle } ModalMessage={ ModalMessage } IsModalOpen={ ModalOpen } CloseModalFunction={ CloseModal } ></ModalPopup>
+
+
+
 
       <div className='CentreEverything'>
         <div className='MainContentWrapper'>
@@ -221,12 +264,6 @@ const SignUp = () => {
 
                         <Button color='warning' onClick={ () => Navigate( '/login' ) } >Already have an account? Click here to Sign In</Button>
                         
-                        {/* <div>
-                          <Button color='warning' onClick={ () => alert( UsernameRef.current.value ) } >UsernameRef</Button>
-                          <Button color='warning' onClick={ () => alert( EmailRef.current.value ) } >EmailRef</Button>
-                          <Button color='warning' onClick={ () => alert( PasswordRef.current.value ) } >PassRef</Button>
-                          <Button color='warning' onClick={ () => alert( ConfirmPassRef.current.value ) } >Pass2Ref</Button>
-                        </div> */}
                         
                     </Stack>
 

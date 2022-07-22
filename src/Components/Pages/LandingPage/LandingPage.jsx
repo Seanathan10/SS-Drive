@@ -42,7 +42,7 @@ export default function LandingPage() {
 
               <div className='CentreEverything3'>
                   <Button color='primary' variant='contained' onClick={ () => Navigate( '/' ) } sx={ { m: 1 } } >Home</Button>
-                  <Button color='primary' variant='contained' onClick={ () => Navigate( '/register' ) } sx={ { m: 1 } } >Register</Button>
+                  <Button color='primary' variant='contained' onClick={ () => Navigate( '/signup' ) } sx={ { m: 1 } } >Register</Button>
                   <Button color='primary' variant='contained' onClick={ () => Navigate( '/dashboard' ) } sx={ { m: 1 } } >Dashboard</Button>
                   <Button color='primary' variant='contained' onClick={ () => Navigate( '/login' ) } sx={ { m: 1 } } >Login</Button>
               </div>

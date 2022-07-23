@@ -7,8 +7,8 @@ import { UserAuth } from '../../Context/AuthContext.js';
 import ModalPopup from '../Modal.jsx';
 
 const SignIn = () => {
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
+  const [ Email, SetEmail ] = useState('');
+  const [ Password, SetPassword ] = useState('');
 
   const [ ModalOpen, SetModalOpen ] = useState();
   const [ ModalTitle, SetModalTitle ] = useState( '' );
@@ -23,18 +23,48 @@ const SignIn = () => {
   const { signIn } = UserAuth();
 
   const handleSubmit = async (e) => {
+    const AllClear = [ 0, 0, 0, 0 ];
+
     e.preventDefault();
 
-    SetModalTitle( 'Test title' );
-    SetModalMessage( 'Test message' );
-    SetModalOpen( true );
-
-    try {
-      await signIn( email, password )
-      Navigate( '/dashboard' )
-    } catch ( e ) {
-      console.log( e.message )
+    if( Email === '' ) {
+      SetModalTitle( 'Email error' );
+      SetModalMessage( 'No email provided' );
+      SetModalOpen( true );
+      AllClear[ 0 ] = 1;
+    } else if( !Email.includes( '@' ) && !Email.includes( '.' ) ) {
+      SetModalTitle( 'Email error' );
+      SetModalMessage( 'Invalid email address' );
+      SetModalOpen( true );
+      AllClear[ 1 ] = 1;
     }
+    
+    if( Password === '' ) {
+      SetModalTitle( 'Password error' );
+      SetModalMessage( 'No password provided' );
+      SetModalOpen( true );
+      AllClear[ 2 ] = 1;
+    } else if( Password.length < 7 ) {
+      SetModalTitle( 'Password error' );
+      SetModalMessage( 'Password cannot be less than 8 characters. Please try again.' );
+      SetModalOpen( true );
+      AllClear[ 3 ] = 1;
+    }
+
+    if( AllClear[ 0 ] === 0 && AllClear[ 1 ] === 0 && AllClear[ 2 ] === 0 && AllClear[ 3 ] === 0 ) {
+      try {
+        console.log( AllClear );
+        await signIn( Email, Password )
+        Navigate( '/dashboard' )
+      } catch ( e ) {
+          console.log( e.message )
+      }
+    }
+      
+
+    
+
+    
   };
 
   return (
@@ -56,12 +86,12 @@ const SignIn = () => {
           
           <div className='flex flex-col py-2'>
             <label className='py-2 font-medium'>Email Address</label>
-            <input onChange={(e) => setEmail(e.target.value)} className='border p-3' type='email' />
+            <input onChange={(e) => SetEmail(e.target.value)} className='border p-3' type='email' />
           </div>
           
           <div className='flex flex-col py-2'>
             <label className='py-2 font-medium'>Password</label>
-            <input onChange={(e) => setPassword(e.target.value)} className='border p-3' type='password' />
+            <input onChange={(e) => SetPassword(e.target.value)} className='border p-3' type='password' />
           </div>
           
           <button className='border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white'>

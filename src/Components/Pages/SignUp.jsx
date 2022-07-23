@@ -174,7 +174,7 @@ const SignUp = () => {
             console.log( Error.message );
           }
           
-          alert( 'Success' );
+          // alert( 'Success' );
 
         } else {
           // alert( 'Password must be at least 6 characters' );

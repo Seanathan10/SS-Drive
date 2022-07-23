@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Box } from "@mui/material";
+// import { Menu } from "@mui/material";
 import { Button } from "@mui/material";
 import { AppBar } from "@mui/material";
 import { Toolbar } from "@mui/material";
@@ -130,10 +131,8 @@ export default function DashboardBar() {
                         <StyledInputBase
                             placeholder="Search..."
                             inputProps={ { 'aria-label': 'Search' } }
-                        ></StyledInputBase>
-
+                        />
                     </Search>
-
 
                     <IconButton
                       size='large'
@@ -148,6 +147,8 @@ export default function DashboardBar() {
 
 
                     <Box sx={ { flexGrow: 1 } }></Box>
+
+
 
 
 

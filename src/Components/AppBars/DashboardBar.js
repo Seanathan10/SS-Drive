@@ -139,6 +139,7 @@ export default function DashboardBar() {
                       edge='start'
                       aria-label='Refine search'
                       sx={ { ml: 0.2 } }
+                      color='inherit'
                       style={ { color: '#ffffff' } }
                     >
                       <TuneIcon></TuneIcon>

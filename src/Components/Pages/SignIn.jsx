@@ -37,9 +37,7 @@ const SignIn = () => {
       SetModalMessage( 'Invalid email address' );
       SetModalOpen( true );
       AllClear[ 1 ] = 1;
-    }
-    
-    if( Password === '' ) {
+    } else if( Password === '' ) {
       SetModalTitle( 'Password error' );
       SetModalMessage( 'No password provided' );
       SetModalOpen( true );
@@ -60,11 +58,6 @@ const SignIn = () => {
           console.log( e.message )
       }
     }
-      
-
-    
-
-    
   };
 
   return (

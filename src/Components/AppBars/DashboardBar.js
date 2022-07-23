@@ -120,18 +120,6 @@ export default function DashboardBar() {
                         />
                     </Search>
 
-                    {/* <IconButton
-                      size='large'
-                      edge='start'
-                      aria-label='Refine search'
-                      sx={ { ml: 0.2 } }
-                      color='inherit'
-                      style={ { color: '#ffffff' } }
-                    >
-                      <TuneIcon></TuneIcon>
-                    </IconButton> */}
-
-
 
                     <Box sx={ { flexGrow: 1 } }></Box>
 

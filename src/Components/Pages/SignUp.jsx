@@ -222,7 +222,7 @@ const SignUp = () => {
                             inputRef={ PasswordRef }
                             label="Password"
                             type={ ShowPassword ? "text" : "password" }
-                            InputProps={ { // password visibility toggle
+                            InputProps={ {
                                 endAdornment: (
                                 <InputAdornment position="end">
                                     <IconButton
@@ -242,7 +242,7 @@ const SignUp = () => {
                             inputRef={ ConfirmPassRef }
                             label="Confirm Password"
                             type={ ShowPassword ? "text" : "password" }
-                            InputProps={{ // password visibility toggle
+                            InputProps={{
                                 endAdornment: (
                                 <InputAdornment position="end">
                                     <IconButton

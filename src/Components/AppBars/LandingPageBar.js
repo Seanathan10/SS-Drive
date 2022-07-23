@@ -193,7 +193,7 @@ export default function LandingPageBar() {
                     
                     
                     
-                    {/* OVERVIEW */}
+
                         <Button
                             disabled={ DidUserScroll_Overview }
                             variant={ DidUserScroll_Overview ? "contained" : "outlined" }
@@ -202,37 +202,37 @@ export default function LandingPageBar() {
                         >Overview</Button>
                     
 
-                    {/* FEATURES */}
-                    <Button
-                        disabled={ DidUserScroll_Features }
-                        variant={ DidUserScroll_Features ? "contained" : "outlined" }
-                        sx={ { mr: 0.5, backgroundColor: 'transparent', borderColor: 'transparent' } }
-                        onClick={ () => FeaturesButtonClicked() }
-                    >Features</Button>
+
+                        <Button
+                            disabled={ DidUserScroll_Features }
+                            variant={ DidUserScroll_Features ? "contained" : "outlined" }
+                            sx={ { mr: 0.5, backgroundColor: 'transparent', borderColor: 'transparent' } }
+                            onClick={ () => FeaturesButtonClicked() }
+                        >Features</Button>
                     
                     
-                    {/* PRIVACY */}
-                    <Button
-                        disabled={ DidUserScroll_Privacy }
-                        variant={ DidUserScroll_Privacy ? "contained" : "outlined" }
-                        sx={ { mr: 0.5, backgroundColor: 'transparent', borderColor: 'transparent' } }
-                        onClick={ () => PrivacyButtonClicked() }
-                    >Privacy</Button>
+
+                        <Button
+                            disabled={ DidUserScroll_Privacy }
+                            variant={ DidUserScroll_Privacy ? "contained" : "outlined" }
+                            sx={ { mr: 0.5, backgroundColor: 'transparent', borderColor: 'transparent' } }
+                            onClick={ () => PrivacyButtonClicked() }
+                        >Privacy</Button>
                     
 
-                    {/* PRICING */}
-                    <Button
-                        disabled={ DidUserScroll_Pricing }
-                        variant={ DidUserScroll_Pricing ? "contained" : "outlined" }
-                        sx={ { mr: 0.5, backgroundColor: 'transparent', borderColor: 'transparent' } }
-                        onClick={ () => PricingButtonClicked() }
-                    >Pricing</Button>
+
+                        <Button
+                            disabled={ DidUserScroll_Pricing }
+                            variant={ DidUserScroll_Pricing ? "contained" : "outlined" }
+                            sx={ { mr: 0.5, backgroundColor: 'transparent', borderColor: 'transparent' } }
+                            onClick={ () => PricingButtonClicked() }
+                        >Pricing</Button>
 
 
                     
-                    <Typography style={ { color: '#242424' } } variant="h6" component="div" sx={ { flexGrow: 1 } }></Typography>
+                        <Typography style={ { color: '#242424' } } variant="h6" component="div" sx={ { flexGrow: 1 } }></Typography>
 
-                    <Button variant='contained' color="secondary" onClick={ () => Navigate( '/login' ) } >Login</Button>
+                        <Button variant='contained' color="secondary" onClick={ () => Navigate( '/login' ) } >Login</Button>
                     
                 </Toolbar>
             </AppBar>

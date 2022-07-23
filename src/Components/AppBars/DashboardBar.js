@@ -6,7 +6,6 @@ import { Button } from "@mui/material";
 import { AppBar } from "@mui/material";
 import { Toolbar } from "@mui/material";
 import { InputBase } from "@mui/material";
-import { TextField } from "@mui/material";
 import { Typography } from "@mui/material";
 import { IconButton } from "@mui/material";
 import { alpha } from "@mui/material/styles";
@@ -23,6 +22,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from '../../Context/AuthContext';
 
+import { useState } from 'react';
+
+import SettingsDrawer from "../SettingsDrawer.jsx";
 
 const Search = styled( 'div' ) (({ theme }) => ({
     position: 'relative',
@@ -65,6 +67,14 @@ const StyledInputBase = styled( InputBase ) (({ theme }) => ({
   
 
 export default function DashboardBar() {
+  const [ DrawerOpen, SetDrawerOpen ] = useState();
+
+  function CloseDrawer() {
+    SetDrawerOpen( false );
+  }
+
+
+    // eslint-disable-next-line
     const { user, logout } = UserAuth();
     
     const HandleLogout = async () => {
@@ -79,8 +89,12 @@ export default function DashboardBar() {
 
     const Navigate = useNavigate();
 
+
+
   return (
     <div>
+      <SettingsDrawer DrawerOpen={ DrawerOpen } CloseDrawerFunction={ CloseDrawer } ></SettingsDrawer>
+
         <Box sx={ { flexGrow: 1 } } >
             <AppBar position='static'>
                 <Toolbar>
@@ -139,7 +153,7 @@ export default function DashboardBar() {
                     <IconButton
                       size="large"
                       edge="end"
-                      onClick={ () => alert( 'Settings button' ) }
+                      onClick={ () => SetDrawerOpen( true ) }
                       color="inherit"
                       sx={ { mr: 0.1 } }
                     >

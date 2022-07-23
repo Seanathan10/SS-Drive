@@ -134,7 +134,7 @@ export default function DashboardBar() {
                         />
                     </Search>
 
-                    <IconButton
+                    {/* <IconButton
                       size='large'
                       edge='start'
                       aria-label='Refine search'
@@ -143,7 +143,7 @@ export default function DashboardBar() {
                       style={ { color: '#ffffff' } }
                     >
                       <TuneIcon></TuneIcon>
-                    </IconButton>
+                    </IconButton> */}
 
 
 
